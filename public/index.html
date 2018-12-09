@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Крестики-нолики онлайн! Играй с друзьями" />
+		<meta name="author" content="Timur Azizov" />
+		<meta property="og:image" content="../assets/img/og_image.png" />
+		<link rel="icon" href="../../favicon.ico" />
+		<title>Крестики-нолики</title>
+
+		<link href="../../assets/css/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../assets/css/style.css" rel="stylesheet">
+	</head>
+	<body class="bg-light">
+		<main role="main" class="container">
+			<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-color rounded box-shadow">
+				<img class="mr-3" src="../../assets/img/header.png" alt="" width="48" height="48" onclick="location.href='/';return false;" style="cursor:pointer" />
+				<div class="lh-100">
+					<h6 class="mb-0 text-white lh-100">Tic-Tac-Toe</h6>
+					<small>Крестики-нолики онлайн</small><br>
+					<small>Ваш ID: <span id="my-id">загрузка...</span></small>
+				</div>
+			</div>
+			<div class="my-3 p-3 bg-white rounded box-shadow" id="main_block" style="display:none">
+				<h6 class="border-bottom border-gray pb-2 mb-0">Доступные комнаты</h6>
+				<div id="rooms"></div>
+				<small class="d-block text-right mt-3">
+					<a href="#" onclick="createRoom(); return false">Создать комнату</a>
+				</small>
+			</div>
+			<div class="my-3 p-3 bg-white rounded box-shadow" id="game_block" style="display:none">
+				<h6 class="mb-0 lh-100 text-center">Вы: <span id="play_for"></span></h6><br>
+				<h6 class="mb-0 lh-100 text-center" id="status_game"></h6><br>
+				<div id="container">
+					<div id="board">
+						<div class="row" id="row_0">
+							<div class="square" id="0"></div>
+							<div class="square" id="1"></div>
+							<div class="square" id="2"></div>
+						</div>
+						<div class="row" id="row_1">
+							<div class="square" id="3"></div>
+							<div class="square" id="4"></div>
+							<div class="square" id="5"></div>
+						</div>
+						<div class="row" id="row_2">
+							<div class="square" id="6"></div>
+							<div class="square" id="7"></div>
+							<div class="square" id="8"></div>
+						</div>
+					</div>
+				</div>
+				<div id="scoreboard">
+					<div>
+						<img src="../../assets/img/X.png">
+						<span id="x-score">0</span>
+					</div>
+					<div>
+						<img src="../../assets/img/O.png">
+						<span id="o-score">0</span>
+					</div>
+					<div>
+						<img src="../../assets/img/draw.png">
+						<span id="draw-score">0</span>
+					</div>
+				</div>
+			</div>
+			<div class="my-3 p-3 bg-white rounded box-shadow" id="error_block" style="display:none">
+				ОШибка!!11!1
+			</div>
+			<div id="modal" style="display:none">
+				<div id="modal-content">
+					<div id="game-over-message">Игра окончена</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer-container">
+				<span class="text-muted">2018 &copy; <a href="https://vk.com/tdiez" target="_blank">LoganFrench</a> | <a href="https://github.com/loganfrench/tic-tac-toe" target="_blank"><img class="mr-3" src="../../assets/img/github-mark.png" alt="" width="20" height="20" /></a></span>
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter47557120 = new Ya.Metrika({ id:47557120, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/47557120" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="../../assets/js/plugins/vendor/popper.min.js"></script>
+	<script src="../../assets/js/plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="../../assets/js/plugins/vendor/holder.min.js"></script>
+	<script src="../../assets/js/scripts.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+</html>
